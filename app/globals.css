@@ -1,0 +1,194 @@
+/* ooca CI tokens — Color / Elevation / Shapes pages of the CI file */
+:root {
+  /* OOCA Turquoise */
+  --turquoise-1: #00c4b3; /* main */
+  --turquoise-2: #b3ede8;
+  --turquoise-3: #dbf0ee;
+  --turquoise-50: #e0f8f6;
+  --turquoise-300: #80e2d9;
+  --turquoise-400: #26cdbe;
+  --turquoise-text: #009688;
+
+  /* Accent */
+  --blue-1: #1f77df;
+  --marigo-1: #f9a000;
+
+  /* Gray / Turquoise gray (text, borders, icons) */
+  --black: #000000;
+  --gray-400: #c4c4c4;
+  --gray-200: #f1f1f1;
+  --gray-100: #f6f6f6;
+  --white: #ffffff;
+  --tq-gray-1: #355956;
+  --tq-gray-2: #3f6866;
+  --tq-gray-4: #79ada9;
+
+  /* Text on Turquoise 1. White on #00C4B3 is 2.2:1 (fails WCAG), this is 6.6:1. */
+  --on-primary: #0f2e2b;
+
+  /* Gradients (CI "Background") */
+  --bg-gradient-01: linear-gradient(180deg, var(--turquoise-3) 0%, var(--white) 60%);
+  --bg-gradient-02: linear-gradient(135deg, #d7fffc 0%, #e0fefb 100%);
+
+  /* Elevation (CI 01 / 03 / 04) */
+  --elev-01: 0 2px 8px rgba(0, 196, 179, 0.08);
+  --elev-03: 0 8px 16px rgba(0, 196, 179, 0.12);
+  --elev-04: 0 16px 24px rgba(0, 196, 179, 0.16);
+
+  /* Shapes: rounded rectangle 8 / 24 */
+  --radius-sm: 8px;
+  --radius-lg: 24px;
+
+  --focus-ring: 3px solid var(--blue-1);
+  --content-max: 1120px;
+
+  /* CI: Gotham Rounded (EN, licensed — used if installed) + Prompt (TH, self-hosted) */
+  --font-sans: "Gotham Rounded", "Prompt", system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--tq-gray-1);
+  background: var(--white);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--tq-gray-1);
+}
+a:hover {
+  color: var(--on-primary);
+}
+
+:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 52px;
+  padding: 0 28px;
+  border-radius: var(--radius-lg);
+  border: 0;
+  font: 500 16px/20px var(--font-sans);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  white-space: nowrap;
+}
+.btn-primary {
+  background: var(--turquoise-1);
+  color: var(--on-primary);
+}
+.btn-primary:hover {
+  background: var(--turquoise-400);
+  color: var(--on-primary);
+  box-shadow: var(--elev-04);
+}
+.btn-primary:disabled {
+  background: var(--gray-200);
+  color: var(--tq-gray-4);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+.btn-secondary {
+  background: var(--white);
+  color: var(--tq-gray-1);
+  border: 1.5px solid var(--turquoise-2);
+  padding: 0 24px 0 16px;
+}
+.btn-secondary:hover {
+  border-color: var(--turquoise-1);
+  background: #f7fdfc;
+  color: var(--on-primary);
+}
+.btn-outline {
+  background: var(--white);
+  color: var(--tq-gray-1);
+  border: 1.5px solid var(--turquoise-1);
+}
+.btn-outline:hover {
+  background: var(--turquoise-50);
+  color: var(--on-primary);
+}
+.btn-block {
+  width: 100%;
+}
+
+kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: 6px;
+  border: 1px solid var(--turquoise-2);
+  border-bottom-width: 2px;
+  background: var(--white);
+  font: 500 12px/16px var(--font-sans);
+  color: var(--tq-gray-1);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.fade-in {
+  animation: fade-in 0.28s ease-out both;
+}
+
+/* Reduced motion: no slides, lifts or bouncing — a short cross-fade only. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+  .fade-in {
+    animation: none;
+  }
+}

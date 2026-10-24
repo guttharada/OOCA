@@ -1,0 +1,227 @@
+/* Desktop: 40 / 60 split — mooca + question left, answers right. */
+.layout {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 48px;
+  align-items: center;
+  padding: 16px 0 56px;
+}
+
+.voice {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.bubble {
+  position: relative;
+  max-width: 400px;
+  padding: 24px 28px;
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  box-shadow: var(--elev-03);
+}
+/* Tail pointing down to mooca */
+.bubble::after {
+  content: "";
+  position: absolute;
+  left: 64px;
+  bottom: -14px;
+  width: 28px;
+  height: 28px;
+  background: var(--white);
+  transform: rotate(45deg);
+  border-radius: 4px;
+}
+
+.question {
+  font-size: 36px;
+  line-height: 48px;
+  font-weight: 600;
+  color: var(--black);
+}
+.question:focus {
+  outline: none;
+}
+
+.moocaRow {
+  position: relative;
+  margin-top: 28px;
+  padding-left: 16px;
+}
+.avatar {
+  display: block;
+}
+.moocaImg {
+  display: block;
+}
+
+.reaction {
+  position: absolute;
+  left: 290px;
+  top: 8px;
+  width: 170px;
+  padding: 10px 14px;
+  border-radius: 20px;
+  border-top-left-radius: 6px;
+  background: var(--turquoise-50);
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--tq-gray-1);
+}
+
+.answers {
+  width: 100%;
+  max-width: 560px;
+  justify-self: end;
+  display: flex;
+  flex-direction: column;
+}
+
+.fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+.legend {
+  padding: 0;
+  margin-bottom: 14px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--tq-gray-2);
+}
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.keyHint {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--tq-gray-2);
+}
+
+.actions {
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.nextGroup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.status {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--tq-gray-2);
+}
+.next {
+  min-width: 200px;
+}
+
+/* Mobile 390: mooca shrinks to an avatar above the question, options stack full width. */
+@media (max-width: 859px) {
+  .layout {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    padding: 16px 0 0;
+  }
+  .voice {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 12px;
+  }
+  .bubble {
+    padding: 0;
+    background: none;
+    box-shadow: none;
+    max-width: none;
+  }
+  .bubble::after {
+    display: none;
+  }
+  .question {
+    font-size: 24px;
+    line-height: 34px;
+  }
+  .moocaRow {
+    margin-top: 0;
+    padding-left: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .avatar {
+    width: 64px;
+    height: 64px;
+    flex: none;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--white);
+    box-shadow: var(--elev-01);
+  }
+  .moocaImg {
+    width: 92px !important;
+    margin: 4px 0 0 -14px;
+  }
+  .reaction {
+    position: static;
+    width: auto;
+    padding: 8px 14px;
+  }
+  .answers {
+    max-width: none;
+    flex: 1;
+  }
+  .legend {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  .options {
+    gap: 10px;
+  }
+  .keyHint {
+    display: none;
+  }
+  .actions {
+    position: sticky;
+    bottom: 0;
+    margin: 16px -24px 0;
+    padding: 14px 24px 24px;
+    background: var(--white);
+    box-shadow: 0 -8px 16px rgba(0, 196, 179, 0.08);
+  }
+  .actions :global(.btn-secondary) {
+    padding: 0 16px 0 12px;
+  }
+  .nextGroup {
+    flex: 1;
+  }
+  .status {
+    display: none;
+  }
+  .next {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+/* Keyboard hint only where a keyboard is likely. */
+@media (hover: none) {
+  .keyHint {
+    display: none;
+  }
+}

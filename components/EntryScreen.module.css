@@ -1,0 +1,86 @@
+.layout {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 48px;
+  align-items: center;
+  padding: 16px 0 56px;
+}
+.art {
+  display: flex;
+  justify-content: center;
+}
+.copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  max-width: 560px;
+}
+.bubble {
+  position: relative;
+  padding: 28px 32px;
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  box-shadow: var(--elev-03);
+}
+/* Tail pointing left to mooca */
+.bubble::before {
+  content: "";
+  position: absolute;
+  left: -12px;
+  top: 40px;
+  width: 26px;
+  height: 26px;
+  background: var(--white);
+  transform: rotate(45deg);
+  border-radius: 4px;
+}
+.title {
+  position: relative;
+  font-size: 36px;
+  line-height: 50px;
+  font-weight: 600;
+  color: var(--black);
+}
+.sub {
+  font-size: 18px;
+  line-height: 28px;
+}
+.cta {
+  min-width: 220px;
+}
+
+@media (max-width: 859px) {
+  .layout {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 0 40px;
+    text-align: center;
+  }
+  .art img {
+    width: 220px !important;
+  }
+  .copy {
+    align-items: stretch;
+  }
+  .bubble {
+    padding: 20px 24px;
+  }
+  .bubble::before {
+    left: calc(50% - 13px);
+    top: -12px;
+  }
+  .title {
+    font-size: 26px;
+    line-height: 38px;
+  }
+  .sub {
+    font-size: 16px;
+    line-height: 26px;
+  }
+  .cta {
+    width: 100%;
+  }
+}

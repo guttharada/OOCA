@@ -1,0 +1,240 @@
+.wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-top: 8px;
+}
+
+.back {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0 14px 0 8px;
+  border: 0;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.75);
+  color: var(--tq-gray-1);
+  font: 500 14px/20px var(--font-sans);
+  cursor: pointer;
+}
+.back:hover {
+  background: var(--white);
+}
+
+.layout {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 48px;
+  align-items: center;
+  padding: 16px 0 32px;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+.eyebrow {
+  margin-top: 8px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  color: var(--tq-gray-2);
+}
+.title {
+  font-size: 40px;
+  line-height: 54px;
+  font-weight: 600;
+  color: var(--black);
+  white-space: pre-line;
+}
+.title:focus {
+  outline: none;
+}
+.lead {
+  font-size: 18px;
+  line-height: 30px;
+  white-space: pre-line;
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.why {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 28px;
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  box-shadow: var(--elev-03);
+}
+.whyTitle {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 500;
+  color: var(--black);
+}
+.reasons {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.reason {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 18px;
+  line-height: 26px;
+  color: var(--black);
+}
+.reason b {
+  font-weight: 500;
+}
+.reasonIcon {
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--turquoise-50);
+  color: var(--tq-gray-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.summary {
+  padding-top: 14px;
+  border-top: 1px solid var(--turquoise-3);
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.nextTitle {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 500;
+  color: var(--black);
+  margin-bottom: 12px;
+}
+.steps {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 24px;
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  border: 1.5px solid var(--turquoise-3);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.step:hover {
+  border-color: var(--turquoise-300);
+  box-shadow: var(--elev-03);
+}
+.stepPrimary,
+.stepPrimary:hover {
+  background: var(--turquoise-50);
+  border: 2px solid var(--turquoise-1);
+}
+.stepTitle {
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 500;
+  color: var(--black);
+}
+.stepBody {
+  font-size: 14px;
+  line-height: 22px;
+}
+.stepBtn {
+  margin-top: auto;
+  width: 100%;
+  padding: 0 16px;
+}
+.step .stepBtn {
+  margin-top: 8px;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding: 16px 0 0;
+  border-top: 1px solid var(--turquoise-3);
+}
+.hotline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 20px;
+}
+.hotline a {
+  font-weight: 500;
+}
+.restart {
+  border: 0;
+  background: none;
+  padding: 0;
+  min-height: 44px;
+  font: 500 14px/20px var(--font-sans);
+  color: var(--tq-gray-1);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@media (max-width: 859px) {
+  .layout {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+    padding-top: 8px;
+  }
+  .hero {
+    align-items: center;
+    text-align: center;
+  }
+  .mooca {
+    width: 160px !important;
+  }
+  .title {
+    font-size: 32px;
+    line-height: 44px;
+  }
+  .lead {
+    font-size: 16px;
+    line-height: 26px;
+  }
+  .why {
+    padding: 20px;
+  }
+  .reason {
+    font-size: 16px;
+    line-height: 24px;
+    align-items: flex-start;
+  }
+  .reasonIcon {
+    width: 36px;
+    height: 36px;
+  }
+  .steps {
+    grid-template-columns: 1fr;
+  }
+}
